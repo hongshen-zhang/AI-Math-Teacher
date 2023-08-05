@@ -1,4 +1,4 @@
-![image](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/f75be87d-2907-4ff3-9531-7ed63ca1541c)![image](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/72b447ee-1cdc-4883-aa17-bd49bfa26ae4)# AI-Math-Teacher——AI集智数学老师
+# AI-Math-Teacher——AI集智数学老师
 喵喵汪汪
 
 # 背景介绍
