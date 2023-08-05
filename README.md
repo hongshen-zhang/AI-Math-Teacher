@@ -26,7 +26,7 @@
 
 # 软件部署
 ## 1. 网页端: 开发了 [solvegpt](http://118.89.117.111/solvegpt/index.html)
-![图片](https://github.com/hongshen-zhang/Unique-hackday_solvegpt/assets/51727955/000343c5-5662-4b8a-adb0-3fd8c98fde7f)
+![图片](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/7da410ba-6133-4d76-8236-bbade6c56e9d)
 
 ## 2. 安卓端: 开发了 Android端App-Solvegpt(Release now,v1.0.0)
 ![图片](https://github.com/hongshen-zhang/Unique-hackday_solvegpt/assets/51727955/93a552f2-0f0d-4d4b-922e-0f38c291bb19)
