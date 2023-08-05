@@ -3,8 +3,6 @@
 ![](https://img.shields.io/badge/License-MIT-lightgrey)
 ![](https://img.shields.io/badge/Version-v0.0.1-orange)
 
-## 基于大语言模型的数学老师
-
 [solvegpt](http://118.89.117.111/solvegpt/index.html)是一款基于大语言模型的数学老师，做题更准，显示正确率，并自动生成数学讲义。
 ![图片](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/164050ce-4814-4c98-a9e0-d4aa7ebda4c7)
 
@@ -23,7 +21,7 @@ Github：[https://github.com/hongshen-zhang/AI-Math-Teacher](https://github.com/
 1. 题目没答案。
 ![图片](https://github.com/hongshen-zhang/Unique-hackday_solvegpt/assets/51727955/2ab8be8e-561a-4237-9eb9-55fd11b4e322)
 2. 由于不知道相关定理，有答案也看不懂。
-![图片](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/eb6adece-c718-46ac-a1e7-14a63d2725c9)
+![图片](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/78a4169e-110a-4e0c-8a15-c05388489b2f)
 
 ## Spot 产品亮点
 ![图片](https://github.com/hongshen-zhang/Unique-hackday_solvegpt/assets/51727955/4ae3cff4-272d-4bcc-b6a9-98a667d89ec1)
