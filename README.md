@@ -12,7 +12,7 @@ Demo 视频：[solvegpt演示](https://www.bilibili.com/video/BV1yj411R7FR/?shar
 
 网页版：[solvegpt网页](http://118.89.117.111/solvegpt/index.html)
 
-安卓版: [solvegpt安卓](http://118.89.117.111/solvegpt/index.html)
+安卓版: [solvegpt安卓](https://github.com/hongshen-zhang/AI-Math-Teacher/releases/tag/v0.0.1)
 
 Github：[https://github.com/hongshen-zhang/AI-Math-Teacher](https://github.com/hongshen-zhang/AI-Math-Teacher)
 
