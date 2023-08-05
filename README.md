@@ -1,4 +1,86 @@
 # AI-Math-Teacher——AI集智数学老师
+
+![](https://img.shields.io/badge/License-MIT-lightgrey)
+![](https://img.shields.io/badge/Version-v0.0.1-orange)
+
+Demo已开放使用: [solvegpt](http://118.89.117.111/solvegpt/index.html)!
+
+## 基于大语言模型的数学老师
+
+[solvegpt](http://118.89.117.111/solvegpt/index.html)! 是一款基于大语言模型的数学老师，做题更准，显示正确率，并自动生成数学讲义。
+
+我们的愿景是让数学不再那么高冷，让我们在学习数学的过程中，不仅能得到答案，还能看懂答案！
+
+## Resource 资源
+
+Demo 视频：[solvegpt演示](https://www.bilibili.com/video/BV1yj411R7FR/?share_source=copy_web&vd_source=2402ea50d5e761d0c54f9f9cb8f35a85)
+
+网页版：[solvegpt网页](http://118.89.117.111/solvegpt/index.html)
+
+安卓版:[solvegpt安卓](http://118.89.117.111/solvegpt/index.html)]
+
+Github：[https://github.com/PromptsLego/PromptsLego](https://github.com/hongshen-zhang/AI-Math-Teacher)
+
+## 产品亮点
+
+1. 多模态输入(Multimodal Input)，用于识别图片题目公式与文字(基于腾讯云OCR)
+2. 多模型联合对抗求解(Adversarial Learning)，用于提高求解准确率(gpt-3.5-turbo,gpt-4,gpt-4-0613)
+3. 准确率智能判断(Accuracy Analysis)，用于评估解题答案的准确性(Accuracy 0% - 100%)
+4. 知识点讲解(Knowledge Explanation),全自动化生成数学讲义
+
+## 计划
+
+目前项目比较早期，也欢迎大家提需求
+
+| 需求         | 描述                                                     | 时间 | 进度 |
+| ------------ | -------------------------------------------------------- | ---- | ---- |
+| 基本功能     | 网页端上线           | 7 月 | ✅   |
+| 基本功能     | 安卓端上限                             | 8 月 | ✅   |
+| 自动生成beamer      | 一种基于多模型对抗的数学问题答案生成方法                   | 8 月 | ✅   |
+| 写专利 1/2       | 一种基于多模型对抗的数学问题答案生成方法                   | 8 月 | ✅   |
+| 写专利 2/2     | 一种基于beamer的自动化数学课件生成方法              | 8 月 |✅   |
+| 代码优化   | 加快运行速度                                 | 9 月 | ❌   |
+| 正式上线 | 增加登录功能                             | 10 月 | ❌   |
+
+## 开发者部署流程
+
+本项目使用[Vite](https://github.com/vitejs/vite.git).
+
+使用方法：
+
+```shell
+yarn install
+yarn dev
+```
+
+或者
+
+```shell
+npm install
+npm run dev
+```
+
+部署如果需要使用优化的功能，需要在 `src/config.ts` 中填入自己的 [PromptsPerfect](https://promptperfect.jinaai.cn/) 的 Api key
+
+## 致谢
+
+感谢大家对我们项目的大力支持，感谢 [OPS 提示词工作室](https://moonvy.com/apps/ops/) 给我们的灵感
+
+## 联系方式
+
+![](./docs/assets/welcome.png)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=PromptsLego/PromptsLego&type=Date)](https://star-history.com/#PromptsLego/PromptsLego&Date)
+
+
+
+
+
+
+
+# AI-Math-Teacher——AI集智数学老师
 喵喵汪汪
 
 # 背景介绍
