@@ -3,7 +3,7 @@
 ![](https://img.shields.io/badge/License-MIT-lightgrey)
 ![](https://img.shields.io/badge/Version-v0.0.1-orange)
 
-[solvegpt](http://118.89.117.111/solvegpt/index.html)是一款基于大语言模型的数学老师，做题更准，显示正确率，并自动生成数学讲义。
+[solvegpt](http://118.89.117.111/solvegpt/index.html) **支持拍照输入**，**做题更准**，**显示正确率**，**自动生成数学讲义**。
 ![图片](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/164050ce-4814-4c98-a9e0-d4aa7ebda4c7)
 
 ## Resource 资源
