@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolveGPT——AI集智数学老师</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        body {
+            background-color: #f3f3f3;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2 {
+            color: #4c5156;
+        }
+
+        h1 {
+            border-bottom: 1px solid #4c5156;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        form {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 1.5rem;
+        }
+
+        button {
+            background-color: #0099ff;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 0.6rem 1.2rem;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: #007acc;
+        }
+
+        input[type="file"] {
+            border: 1px solid #4c5156;
+            border-radius: 5px;
+            padding: 0.5rem;
+        }
+
+        #answer {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 1.5rem;
+        }
+
+        #question-history {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 1.5rem;
+        }
+
+        #answer,
+        #question-history {
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>SolveGPT——AI集智数学老师</h1>
+    <form id="question-form">
+        <label>
+            支持模型列表:
+            <select id="model-selector">
+                <option value="gpt-4-0613">gpt-4-0613</option>
+                <option value="gpt-4">gpt-4</option>
+                <option value="gpt-3.5-turbo-0613">gpt-3.5-turbo-0613</option>
+                <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+            </select>
+        </label>
+        <label>
+            问题:
+            <textarea id="question" rows="4"></textarea>
+        </label>
+        <label>
+            上传图像:
+            <input type="file" id="image" accept="image/*">
+        </label>
+        <button type="button" id="ocr-button"> 图像转文字 </button>
+        <button type="submit">一键解题</button>
+    </form>
+    <h2>知识与答案:</h2>
+    <pre id="answer"></pre>
+    <p id="accuracy"></p>
+    <button id="save">保存结果到知识库</button>
+    <button id="show_pdf">查看pdf</button>
+    <!-- 问题数据库 -->
+    <h2>知识宝库:</h2>
+    <button id="downloadBtn">下载</button>
+    <input type="file" id="uploadInput" style="display:none">
+    <button id="uploadBtn">上传</button>
+    <pre></pre>
+    <table id="question-history">
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Definition/Theorem/Answer</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div id="error-message" style="color: red;"></div>
+
+    <script>
+        // const API_BASE_URL = "http://127.0.0.1:8000/snapq/api/v1";
+        
+        const API_ROOT = "/solvegpt/api"
+        const API_BASE_URL = API_ROOT + "/v1";
+
+        const questionForm = document.getElementById("question-form");
+        const questionInput = document.getElementById("question");
+        const imageInput = document.getElementById("image");
+        const answerElement = document.getElementById("answer");
+
+        const saveButton = document.getElementById("save");
+        const questionHistory = document.querySelector("#question-history tbody");
+        const clearButton = document.getElementById("clear");
+        const ocrButton = document.getElementById("ocr-button");
+
+        const downloadBtn = document.getElementById('downloadBtn');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const uploadInput = document.getElementById('uploadInput');
+
+        const modelSelector = document.getElementById('model-selector');
+        const errorMessageDiv = document.getElementById("error-message");
+
+        const requestPdfButton = document.getElementById('show_pdf')
+
+
+        result = null;
+
+        // @app.get("/photoquiz/api/v1/getAll")
+        // async def get_all():
+        // 自动调用
+        async function get_all_questions() {
+            while (questionHistory.firstChild) {
+                questionHistory.removeChild(questionHistory.firstChild);
+            }
+            const response = await fetch(API_BASE_URL + "/getAll");
+            try {
+
+                const result = await response.json();
+                // 格式化json
+                result.data.forEach(item => {
+                    const row = document.createElement("tr");
+                    const questionCell = document.createElement("td");
+                    const answerCell = document.createElement("td");
+
+                    questionCell.textContent = item.question;
+                    answerCell.textContent = "Definition:\n" + item.definition
+                        + "\nTheorem:\n" + item.theorem
+                        + "\nAnswer:\n" + item.answer;
+
+                    row.appendChild(questionCell);
+                    row.appendChild(answerCell);
+                    questionHistory.appendChild(row);
+                });
+                errorMessageDiv.textContent = "";
+
+            } catch (error) {
+                errorMessageDiv.textContent = "Error getting all questions - " + error.toString();
+            }
+
+        }
+
+        get_all_questions();
+
+        function showAnswer(result) {
+            if (result.success == false) {
+                answerElement.textContent = result.message;
+                return;
+            } else {
+                console.log(result);
+                // result to json
+                result_json = JSON.stringify(result);
+                answerElement.textContent = result_json + "\n\n";
+                answerElement.textContent += result.data.question;
+                answerElement.textContent += "\n\n";
+                answerElement.textContent += "Definition:\n";
+                answerElement.textContent += result.data.definition;
+                answerElement.textContent += "\n\n";
+                answerElement.textContent += "Theorem:\n";
+                answerElement.textContent += result.data.theorem;
+                answerElement.textContent += "\n\n";
+                answerElement.textContent += "Answer:\n";
+                answerElement.textContent += result.data.answer;
+                updateAccuracy(result.data.accuracy);
+            }
+        }
+
+        ocrButton.addEventListener("click", async (event) => {
+            event.preventDefault(); // 阻止默认行为，例如按钮点击可能导致表单提交
+            if (imageInput.files.length > 0) {
+
+                answerElement.textContent = "Loading...";
+                const formData = new FormData();
+                formData.append("image", imageInput.files[0]);
+
+                try {
+                    const response = await fetch(API_BASE_URL + "/submitImage", {
+                        method: "POST",
+                        body: formData
+                    });
+                    console.log(response);
+
+                    result = await response.json();
+                    answerElement.textContent = "";
+                    if (result.success == false) {
+                        answerElement.textContent = result.message;
+                        return;
+                    } else {
+
+                        questionInput.value = result.data.question;
+                    }
+
+
+                } catch (error) {
+                    answerElement.textContent = "Error submitting image - " + error.toString();
+                }
+            }
+        });
+
+        questionForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const selectedModel = modelSelector.value;
+
+            if (questionInput.value.trim() !== "") {
+                answerElement.textContent = "Loading...";
+                try {
+                    const formData = new FormData();
+                    formData.append("text", questionInput.value);
+                    formData.append("model", selectedModel);
+                    const response = await fetch(API_BASE_URL + "/submitText", {
+                        method: "POST",
+                        body: formData
+                    });
+
+                    result = await response.json();
+                    showAnswer(result);
+                } catch (error) {
+                    answerElement.textContent = "Error submitting image - " + error.toString();
+                }
+            } else {
+                alert("Please enter a question");
+            }
+
+        });
+
+        //         @app.post("/photoquiz/api/v1/save")
+        // async def save_question(question: str = Body(...), answer: str = Body(...)):
+        saveButton.addEventListener("click", async (event) => {
+            event.preventDefault();
+            if (result == null) {
+                alert("Please submit a question first");
+                return;
+            }
+
+            try {
+                const formData = new FormData();
+                formData.append("question", result.data.question);
+                formData.append("definition", result.data.definition);
+                formData.append("theorem", result.data.theorem);
+                formData.append("answer", result.data.answer);
+                const response = await fetch(API_BASE_URL + "/save", {
+                    method: "POST",
+                    body: formData
+                });
+
+                answerElement.textContent += "\n\nQuestion saved";
+
+                get_all_questions();
+            } catch (error) {
+                answerElement.textContent += "\n\nError saving question - " + error.toString();
+            }
+        });
+
+        // clearButton.addEventListener("click", async (event) => {
+        //     event.preventDefault();
+        //     try {
+        //         const response = await fetch(API_BASE_URL + "/clear", {
+        //             method: "POST"
+        //         });
+
+        //         result = await response.json();
+        //         answerElement.textContent += "\n\nQuestion history cleared";
+
+        //         get_all_questions();
+        //     } catch (error) {
+        //         answerElement.textContent += "\n\nError clearing question history - " + error.toString();
+        //     }
+        // });
+
+        downloadBtn.addEventListener('click', () => {
+            window.location.href = API_BASE_URL + '/download';
+        });
+
+        uploadBtn.addEventListener('click', () => {
+            uploadInput.click();
+        });
+
+        uploadInput.addEventListener('change', async () => {
+            const file = uploadInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+
+                const response = await fetch(API_BASE_URL + '/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                if (result.success == false) {
+                    alert(result.message);
+                } else {
+                    get_all_questions();
+                }
+
+                uploadInput.value = '';
+            } catch (error) {
+                alert('Error uploading file ' + error.toString());
+            }
+
+        });
+
+        requestPdfButton.addEventListener('click', function () {
+            if (result == null) {
+                return;
+            }
+            const formData = new FormData();
+            formData.append("question", result.data.question);
+            formData.append("definition", result.data.definition);
+            formData.append("theorem", result.data.theorem);
+            formData.append("answer", result.data.answer);
+
+            requestPdfButton.disabled = true;
+            requestPdfButton.textContent = "正在加载PDF...";
+
+            fetch(API_BASE_URL + '/pdf', {
+                method: 'POST',
+                body: formData,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.data && data.data.pdf_url) {
+                        window.location.href = API_ROOT + data.data.pdf_url;
+                    } else {
+                        console.error("Error: ", data);
+                    }
+                    requestPdfButton.disabled = false;
+                    requestPdfButton.textContent = "查看PDF";
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    requestPdfButton.disabled = false;
+                    requestPdfButton.textContent = "查看PDF";
+                });
+        });
+
+        function updateAccuracy(accuracy) {
+            const accuracyElement = document.getElementById('accuracy');
+            const probability = Math.random();
+            let accuracyColor;
+            accuracy = parseFloat(accuracy)
+
+            if (accuracy > 0.9) {
+                accuracyColor = 'green';
+            } else if (accuracy > 0.8) {
+                accuracyColor = 'orange';
+            } else {
+                accuracyColor = 'red';
+            }
+
+            accuracyElement.textContent = `Accuracy: ${accuracy}%`;
+            accuracyElement.style.color = accuracyColor;
+        }
+
+
+    </script>
+</body>
+
+</html>

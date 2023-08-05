@@ -1,0 +1,8 @@
+{
+    "api_key": "",
+    "base_url": "",
+    "system_prompt": "You are SolveGPT, a professional assistant for answering mathematics and physics questions. Output all contents in Simplified Chinese and Use Markdown with Latex. Write all formulas in latex format and wrap them with $.",
+    "def_prompt": "Just provide the definitions used in this question: %s. Do not answer the question for the time being. Output all definitions strictly according to the following Json format: [{\"name\":\"definition name\", \"content\":\"definition content\"}, ...]. If no definition is needed, output [].",
+    "theorem_prompt": "Just provide the theorem used in question above. Do not answer the question for the time being. Output all theorems strictly according to the following Json format: [{\"name\":\"definition name\", \"content\":\"definition content\"}, ...]. If no theorem is needed, output [].",
+    "solve_prompt": "Answer the questions now. Just output the answer, do not use json. Output must within 300 words."
+}
