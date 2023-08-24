@@ -3,7 +3,7 @@
 ![](https://img.shields.io/badge/License-MIT-lightgrey)
 ![](https://img.shields.io/badge/Version-v0.0.1-orange)
 
-[solvegpt](http://118.89.117.111/solvegpt/index.html) **支持拍照输入**，**做题更准**，**显示正确率**，**自动生成数学讲义**，每道题目第一个提问的用户拥有题目解答的拥有权，后续相同提问只需直接调用pdf，并给**第一位用户**付费。
+[solvegpt](http://118.89.117.111/solvegpt/index.html) **支持拍照输入**，**做题更准**，**显示正确率**，**自动生成数学讲义**，每道题目第一个提问的用户**拥有题目解答的所有权**，后续相同提问只需直接调用pdf，并给**第一位用户**付费。
 
 ![图片](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/164050ce-4814-4c98-a9e0-d4aa7ebda4c7)
 
