@@ -6,6 +6,7 @@
 [solvegpt](http://118.89.117.111/solvegpt/index.html) **支持拍照输入**，**做题更准**，**显示正确率**，**自动生成数学讲义**。
 ![图片](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/164050ce-4814-4c98-a9e0-d4aa7ebda4c7)
 
+
 ## Resource 资源
 
 Demo 视频：[solvegpt演示](https://www.bilibili.com/video/BV1yj411R7FR/?share_source=copy_web&vd_source=2402ea50d5e761d0c54f9f9cb8f35a85)
@@ -22,6 +23,8 @@ Github：[https://github.com/hongshen-zhang/AI-Math-Teacher](https://github.com/
 ![图片](https://github.com/hongshen-zhang/Unique-hackday_solvegpt/assets/51727955/2ab8be8e-561a-4237-9eb9-55fd11b4e322)
 2. 由于不知道相关定理，有答案也看不懂。
 ![图片](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/78a4169e-110a-4e0c-8a15-c05388489b2f)
+3. 题目难共享：SolveGPT支持将题目的pdf作为个人资产存储到Arweave上，后续调用相同题目可以直接调用，向第一位生成者付费
+![image](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/5d6296c0-daed-4f2d-8534-c6dc2cbe1ed0)
 
 ## Spot 产品亮点
 ![图片](https://github.com/hongshen-zhang/Unique-hackday_solvegpt/assets/51727955/4ae3cff4-272d-4bcc-b6a9-98a667d89ec1)
