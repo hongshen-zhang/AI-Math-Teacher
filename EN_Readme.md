@@ -11,17 +11,17 @@ By : Xinjin(Synthia) Li
 ### For Problem solving
 Facilitate an entire process, from capturing math problems via photos to producing automated teaching materials. Its edge over other tools lies in its accuracy and the intelligibility of its answers.
 
-![image](https://github.com/hongshen-zhang/NeoWizard/assets/51727955/8909ca45-261d-431b-961f-a594c8455c0f)
+![image](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/2007fa72-04de-4ad8-8e3c-32f37c42f03d)
 
 ## Resource
 
-Demo Video：[NeoWizard](https://www.bilibili.com/video/BV1yj411R7FR/?share_source=copy_web&vd_source=2402ea50d5e761d0c54f9f9cb8f35a85)
+Demo Video：[SolveGPT](https://www.bilibili.com/video/BV1yj411R7FR/?share_source=copy_web&vd_source=2402ea50d5e761d0c54f9f9cb8f35a85)
 
-Website ：[NeoWizard](http://118.89.117.111/solvegpt/index.html)
+Website ：[SolveGPT](http://118.89.117.111/solvegpt/index.html)
 
-Android : [NeoWizard](https://github.com/hongshen-zhang/AI-Math-Teacher/releases/tag/v0.0.1)
+Android : [SolveGPT](https://github.com/hongshen-zhang/AI-Math-Teacher/releases/tag/v0.0.1)
 
-Github：[https://github.com/hongshen-zhang/NeoWizard](https://github.com/hongshen-zhang/NeoWizard)
+Github：[https://github.com/hongshen-zhang/SolveGPT](https://github.com/hongshen-zhang/AI-Math-Teacher)
 
 
 # Demand
