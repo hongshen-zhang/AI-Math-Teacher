@@ -1,8 +1,6 @@
 # AI-Math-Teacher
 
-🌐 [English](./EN_README.md) | [中文](./ZH_README.md)
-
-
+🌐 [English](./EN_Readme.md) | [中文](./ZH_Readme.md)
 
 ![](https://img.shields.io/badge/License-MIT-lightgrey)
 ![](https://img.shields.io/badge/Version-v0.0.1-orange)
