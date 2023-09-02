@@ -1,4 +1,4 @@
-# AI-Math-Teacher
+# SolveGPT——AI Math Teacher
 
 🌐 [English](./EN_Readme.md) | [中文](./README.md)
 
