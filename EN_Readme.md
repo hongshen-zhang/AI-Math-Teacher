@@ -1,5 +1,7 @@
 # NeoWizard —— Blockchain Math Teacher
 
+🌐 [English](./EN_Readme.md) | [中文](./Readme.md)
+
 ![](https://img.shields.io/badge/License-MIT-lightgrey)
 ![](https://img.shields.io/badge/Version-v0.0.1-orange)
 
