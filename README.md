@@ -1,4 +1,8 @@
-# AI-Math-Teacher——AI集智数学老师
+# AI-Math-Teacher
+
+🌐 [English](./EN_README.md) | [中文](./ZH_README.md)
+
+
 
 ![](https://img.shields.io/badge/License-MIT-lightgrey)
 ![](https://img.shields.io/badge/Version-v0.0.1-orange)
