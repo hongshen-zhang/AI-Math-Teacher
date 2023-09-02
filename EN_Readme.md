@@ -1,16 +1,15 @@
-# NeoWizard —— Blockchain Math Teacher
+# SolveGPT——AI Math Teacher
 
 🌐 [English](./EN_Readme.md) | [中文](./README.md)
+
+By : Xinjin(Synthia) Li
 
 ![](https://img.shields.io/badge/License-MIT-lightgrey)
 ![](https://img.shields.io/badge/Version-v0.0.1-orange)
 
-[NeoWizard](http://118.89.117.111/solvegpt/index.html)
+[SolveGPT](http://118.89.117.111/solvegpt/index.html)
 ### For Problem solving
 Facilitate an entire process, from capturing math problems via photos to producing automated teaching materials. Its edge over other tools lies in its accuracy and the intelligibility of its answers.
-
-### Advantage of Blockchain
-The first user who poses each question **owns the rights to the math lecture notes**. Subsequent identical questions simply call up the pdf and pay the **first user** for access.
 
 ![image](https://github.com/hongshen-zhang/NeoWizard/assets/51727955/8909ca45-261d-431b-961f-a594c8455c0f)
 
@@ -30,9 +29,6 @@ Github：[https://github.com/hongshen-zhang/NeoWizard](https://github.com/hongsh
 ![image](https://github.com/hongshen-zhang/NeoWizard/assets/51727955/1503150f-9a30-46a6-9cd7-c2ad5f51a856)
 2. Due to unfamiliarity with the relevant theorems, even having the answer doesn't make it understandable.
 ![image](https://github.com/hongshen-zhang/NeoWizard/assets/51727955/3d78c150-a7c9-451d-a0d2-c661a16bb6d1)
-3. Difficulty in sharing problems: NeoWizard allows users to store the problem's pdf on Neo as a personal asset. When accessing the same problem later, it can be directly retrieved, with payment made to the initial creator.
-![image](https://github.com/hongshen-zhang/NeoWizard/assets/51727955/17036dbe-3f8f-47aa-864d-9e6b487706d9)
-
 
 ## Spot 
 ![image](https://github.com/hongshen-zhang/NeoWizard/assets/51727955/932f440f-5402-4c4a-9bea-efa4ee707132)
