@@ -51,7 +51,7 @@ Github：[https://github.com/hongshen-zhang/AI-Math-Teacher](https://github.com/
 | 基本功能     | 支持中英文，黑暗模式，不同学历              | 8 月 |✅   |
 | 基本功能     | 上线web3支付功能                | 8 月 |✅   |
 | 代码优化   | 加快运行速度                                 | 9 月 | ❌   |
-| 注册域名   | solvegpt.cn                                 | 9 月 | ❌   |
+| 注册域名   | solvegpt.cn                                 | 9 月 | ✅   |
 | 正式上线 | 增加登录功能                             | 10 月 | ❌   |
 
 
