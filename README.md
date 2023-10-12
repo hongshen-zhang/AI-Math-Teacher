@@ -7,7 +7,7 @@ By : Xinjin(Synthia) Li
 ![](https://img.shields.io/badge/License-MIT-lightgrey)
 ![](https://img.shields.io/badge/Version-v0.0.1-orange)
 
-[solvegpt](http://118.89.117.111/solvegpt/index.html) **支持拍照输入**，**做题更准**，**显示正确率**，**自动生成数学讲义**，每道题目第一个提问的用户**拥有数学讲义的所有权**，后续相同提问只需直接调用pdf，并给**第一位用户**付费。
+[solvegpt](http://110.40.186.52:10001/solve) **支持拍照输入**，**做题更准**，**显示正确率**，**自动生成数学讲义**，每道题目第一个提问的用户**拥有数学讲义的所有权**，后续相同提问只需直接调用pdf，并给**第一位用户**付费。
 
 ![图片](https://github.com/hongshen-zhang/AI-Math-Teacher/assets/51727955/164050ce-4814-4c98-a9e0-d4aa7ebda4c7)
 
@@ -16,7 +16,7 @@ By : Xinjin(Synthia) Li
 
 Demo 视频：[solvegpt演示](https://www.bilibili.com/video/BV1yj411R7FR/?share_source=copy_web&vd_source=2402ea50d5e761d0c54f9f9cb8f35a85)
 
-网页版：[solvegpt网页](http://118.89.117.111/solvegpt/index.html)
+网页版：[solvegpt网页](http://110.40.186.52:10001/solve)
 
 安卓版: [solvegpt安卓](https://github.com/hongshen-zhang/AI-Math-Teacher/releases/tag/v0.0.1)
 
