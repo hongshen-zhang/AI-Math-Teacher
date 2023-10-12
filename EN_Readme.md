@@ -7,7 +7,7 @@ By : Xinjin(Synthia) Li
 ![](https://img.shields.io/badge/License-MIT-lightgrey)
 ![](https://img.shields.io/badge/Version-v0.0.1-orange)
 
-[SolveGPT](http://118.89.117.111/solvegpt/index.html)
+[SolveGPT](http://110.40.186.52:10001/solve)
 ### For Problem solving
 Facilitate an entire process, from capturing math problems via photos to producing automated teaching materials. Its edge over other tools lies in its accuracy and the intelligibility of its answers.
 
@@ -17,7 +17,7 @@ Facilitate an entire process, from capturing math problems via photos to produci
 
 Demo Video：[SolveGPT](https://www.bilibili.com/video/BV1yj411R7FR/?share_source=copy_web&vd_source=2402ea50d5e761d0c54f9f9cb8f35a85)
 
-Website ：[SolveGPT](http://118.89.117.111/solvegpt/index.html)
+Website ：[SolveGPT](http://110.40.186.52:10001/solve)
 
 Android : [SolveGPT](https://github.com/hongshen-zhang/AI-Math-Teacher/releases/tag/v0.0.1)
 
