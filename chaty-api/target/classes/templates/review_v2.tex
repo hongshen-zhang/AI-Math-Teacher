@@ -1,0 +1,44 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath,amsfonts,amssymb}
+\title{文件名}
+\author{SolveGPT}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{题目}
+${question}
+
+<#if answer?has_content>
+\section{正确答案}
+${answer}
+</#if>
+
+<#if knowledge?has_content>
+\section{知识点}
+${answer}
+</#if>
+
+<#if ocrText?has_content>
+\section{输入答案}
+${ocrText}
+</#if>
+
+<#if trueText?has_content>
+\section{批改结果}
+${trueText}
+</#if>
+
+<#if isTrue == 0>
+\section{错误}
+\textcolor{red}{${errText}}
+</#if>
+
+<#if comment?has_content>
+\section{评价}
+${comment}
+</#if>
+
+\end{document}

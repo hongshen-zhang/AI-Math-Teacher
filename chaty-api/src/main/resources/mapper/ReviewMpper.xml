@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaty.mapper.ReviewMapper">
+
+
+    <!-- list -->
+    <select id="list">
+        SELECT
+            * 
+        FROM
+            review r 
+        WHERE
+            r.deleted = 0
+        <if test="keyword != null and keyword != ''">
+            AND r.question like '%'||#{keyword}||'%'
+        </if>
+        <if test="param.name != null and param.name != ''">
+            AND r.name like '%'||#{param.name}||'%'
+        </if>
+        <if test="param.question != null and param.question != ''">
+            AND r.question like '%'||#{param.question}||'%'
+        </if>
+        <if test="param.answer != null and param.answer != ''">
+            AND r.answer like '%'||#{param.answer}||'%'
+        </if>
+        <if test="param.isTrue != null">
+            AND r.is_true = #{param.isTrue}
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaty.mapper.QuestionLibraryMapper">
+
+
+    <!-- selectAll -->
+    <select id="selectAll">
+        select * from question_library where deleted = 0 
+        <if test="param.question != null and param.question != ''">
+            and question like '%'||#{param.question}||'%'
+        </if>
+        <if test="param.knowledge != null and param.knowledge != ''">
+            and knowledge like '%'||#{param.knowledge}||'%'
+        </if>
+    </select>
+
+    <!-- findByKeyword -->
+    <select id="findByKeyword">
+        SELECT
+            * 
+        FROM
+            (
+            SELECT
+                id,
+                0 AS type,
+                question,
+                knowledge,
+                answer,
+                NULL AS knowledgeName,
+                NULL AS knowledgeContent,
+                NULL AS name,
+                NULL AS correctAnswer,
+                NULL AS isTrue,
+                NULL AS errText,
+                NULL AS comment 
+            FROM
+                question_library 
+            WHERE
+                deleted = 0 
+                AND ( question LIKE '%' ||#{ keyword }|| '%' OR knowledge LIKE '%' ||#{ keyword }|| '%' ) UNION
+            SELECT
+                id,
+                1 AS type,
+                NULL AS question,
+                NULL AS knowledge,
+                NULL AS answer,
+                name AS knowledgeName,
+                content AS knowledgeContent,
+                NULL AS name,
+                NULL AS correctAnswer,
+                NULL AS isTrue,
+                NULL AS errText,
+                NULL AS comment 
+            FROM
+                knowledge 
+            WHERE
+                deleted = 0 
+                AND ( name LIKE '%' ||#{ keyword }|| '%' OR content LIKE '%' ||#{ keyword }|| '%' ) UNION
+            SELECT
+                id,
+                2 AS type,
+                question,
+                knowledge,
+                answer,
+                NULL AS knowledgeName,
+                NULL AS knowledgeContent,
+                name,
+                correct_answer AS correctAnswer,
+                is_true AS isTrue,
+                err_text AS errText,
+                comment 
+            FROM
+                review 
+            WHERE
+                deleted = 0 
+            AND ( name LIKE '%' ||#{ keyword }|| '%' OR question LIKE '%' ||#{ keyword }|| '%' ) 
+            ) t
+        <where>
+            <if test="searchType != null">
+                and type = #{searchType}
+            </if>
+        </where>
+    </select>
+</mapper>

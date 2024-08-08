@@ -1,0 +1,97 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath,amsfonts,amssymb}
+\title{文件名}
+\author{SolveGPT}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+<#list notes as note>
+
+<#if note.type == 0>
+\section{题目}
+
+<#if note.question?has_content>
+\subsection{题目}
+${note.question}
+</#if>
+
+<#if note.answer?has_content>
+\subsection{答案}
+${note.answer}
+</#if>
+
+<#if note.knowledge?has_content>
+\subsection{知识点}
+${note.knowledge}
+</#if>
+
+</#if>
+
+<#if note.type == 1>
+\section{知识点}
+
+<#if note.knowledgeName?has_content>
+\subsection{名称}
+${note.knowledgeName}
+</#if>
+
+<#if note.knowledgeContent?has_content>
+\subsection{知识点}
+${note.knowledgeContent}
+</#if>
+
+</#if>
+
+<#if note.type == 2>
+\section{作业批改}
+
+<#if note.name?has_content>
+\subsection{名称}
+${note.name}
+</#if>
+
+<#if note.question?has_content>
+\subsection{题目}
+${note.question}
+</#if>
+
+<#if note.correctAnswer?has_content>
+\subsection{正确答案}
+${note.correctAnswer}
+</#if>
+
+<#if note.knowledge?has_content>
+\subsection{知识点}
+${note.knowledge}
+</#if>
+
+<#if note.answer?has_content>
+\subsection{学生答案}
+${note.answer}
+</#if>
+
+\subsection{是否正确}
+<#if note.isTrue == 1>
+正确
+<#else>
+\textcolor{red}{错误}
+</#if>
+
+<#if note.errText?has_content>
+\subsection{错误}
+${note.errText}
+</#if>
+
+<#if note.comment?has_content>
+\subsection{错误}
+${note.comment}
+</#if>
+
+</#if>
+
+</#list>
+
+\end{document}

@@ -1,0 +1,39 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath,amsfonts,amssymb}
+\title{文件名}
+\author{SolveGPT}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{题目}
+${config.question}
+
+\section{最终答案}
+${finalAnswer}
+
+\section{最终答案}
+
+<#if models[0].definition?has_content>
+\subsection{定义}
+${models[0].definition}
+</#if>
+
+<#if models[0].theorem?has_content>
+\subsection{定理}
+${models[0].theorem}
+</#if>
+
+<#if models[0].process?has_content>
+\subsection{解题过程}
+${models[0].process}
+</#if>
+
+<#if models[0].answer?has_content>
+\subsection{答案}
+${models[0].answer}
+</#if>
+
+\end{document}
