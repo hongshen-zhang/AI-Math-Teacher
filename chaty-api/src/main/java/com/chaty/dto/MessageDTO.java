@@ -7,6 +7,6 @@ public class MessageDTO {
 
     private String role;
 
-    private String content;
+    private Object content;
 
 }

@@ -7,10 +7,10 @@
     <select id="selectAll">
         select * from question_library where deleted = 0 
         <if test="param.question != null and param.question != ''">
-            and question like '%'||#{param.question}||'%'
+            and question like concat('%', #{param.question}, '%')
         </if>
         <if test="param.knowledge != null and param.knowledge != ''">
-            and knowledge like '%'||#{param.knowledge}||'%'
+            and knowledge like concat('%', #{param.knowledge}, '%')
         </if>
     </select>
 
@@ -37,7 +37,7 @@
                 question_library 
             WHERE
                 deleted = 0 
-                AND ( question LIKE '%' ||#{ keyword }|| '%' OR knowledge LIKE '%' ||#{ keyword }|| '%' ) UNION
+                AND ( question LIKE concat('%', #{ keyword }, '%') OR knowledge LIKE concat('%', #{ keyword }, '%') ) UNION
             SELECT
                 id,
                 1 AS type,
@@ -55,7 +55,7 @@
                 knowledge 
             WHERE
                 deleted = 0 
-                AND ( name LIKE '%' ||#{ keyword }|| '%' OR content LIKE '%' ||#{ keyword }|| '%' ) UNION
+                AND ( name LIKE concat('%', #{ keyword }, '%') OR content LIKE concat('%', #{ keyword }, '%') ) UNION
             SELECT
                 id,
                 2 AS type,
@@ -73,7 +73,7 @@
                 review 
             WHERE
                 deleted = 0 
-            AND ( name LIKE '%' ||#{ keyword }|| '%' OR question LIKE '%' ||#{ keyword }|| '%' ) 
+            AND ( name LIKE concat('%', #{ keyword }, '%') OR question LIKE concat('%', #{ keyword }, '%') ) 
             ) t
         <where>
             <if test="searchType != null">

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaty.mapper.DocLibraryMapper">
+
+    <!-- list -->
+    <select id="list">
+        select * from doc_library 
+        <where>
+            deleted = 0
+            <if test="docname != null and docname != ''">
+                and docname like concat('%', #{docname}, '%')
+            </if>
+        </where>
+    </select>
+
+    <!-- updateById -->
+    <update id="updateById">
+        update doc_library 
+        <set>
+            <if test='docurl != null'>docurl = #{docurl},</if>
+            <if test='docpath != null'>docpath = #{docpath},</if>
+            <if test='docname != null'>docname = #{docname},</if>
+            <if test='idArea != null'>id_area = #{idArea},</if>
+            <if test='questions != null'>questions = #{questions},</if>
+            <if test='deleted != null'>deleted = #{deleted},</if>
+            <if test='extConf != null'>ext_conf = #{extConf},</if>
+        </set>
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+        </where>
+    </update>
+
+    <!-- insert -->
+    <insert id="insert">
+        INSERT INTO doc_library ( id, docurl, docpath, docname, id_area, questions, ext_conf )
+        VALUES
+	        ( #{id}, #{docurl}, #{docpath}, #{docname}, #{idArea}, #{questions}, #{extConf} );
+    </insert>
+
+    <!-- selectById --> 
+    <select id="selectById">
+        select * from doc_library where id = #{id}
+    </select>
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaty.mapper.UserMapper">
+
+    <!-- list -->
+    <select id="list">
+        select * from user 
+        <where>
+            deleted = 0
+        </where>
+    </select>
+
+    <!-- updateById -->
+    <update id="updateById">
+        update user 
+        <set>
+            <if test='username != null'>username = #{username},</if>
+            <if test='email != null'>email = #{email},</if>
+            <if test='nickname != null'>nickname = #{nickname},</if>
+            <if test='password != null'>password = #{password},</if>
+            <if test='status != null'>status = #{status},</if>
+            <if test='defaultSchool != null'>default_school = #{defaultSchool},</if>
+        </set>
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+        </where>
+    </update>
+
+    <!-- selectById --> 
+
+    <select id="selectById">
+        select * from user where id = #{id}
+    </select>
+
+    <!-- deleteById --> 
+
+    <update id="deleteById">
+        update user set deleted = 1 where id = #{id}
+    </update>    
+</mapper>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaty.mapper.DocReviewMapper">
+
+    <!-- list -->
+    <select id="list">
+        select * from doc_review 
+        <where>
+            <if test="incluedIds != null">
+                and id in 
+                <foreach item="id" index="index" collection="incluedIds" open="(" separator="," close=")">
+                    #{id}
+                </foreach>
+            </if>
+            <if test="batchId != null and batchId != ''">
+                and batch_id = #{batchId}
+            </if>
+        </where>
+    </select>
+
+    <!-- updateById -->
+
+    <update id="updateById">
+        update doc_review 
+        <set>
+            <if test='filename != null'>filename = #{filename},</if>
+            <if test='fileurl != null'>fileurl = #{fileurl},</if>
+            <if test='identify != null'>identify = #{identify},</if>
+            <if test='status != null'>status = #{status},</if>
+            <if test='errorText != null'>error_text = #{errorText},</if>
+            <if test='reviewDoc != null'>review_doc = #{reviewDoc},</if>
+            <if test='batchId != null'>batch_id = #{batchId},</if>
+            <if test='reviewed != null'>reviewed = #{reviewed},</if>
+        </set>
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="incluedIds != null">
+                and id in 
+                <foreach item="id" index="index" collection="incluedIds" open="(" separator="," close=")">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </update>
+
+    <!-- insertBatch --> 
+    <insert id="insertBatch">
+        INSERT INTO doc_review (id, filename, fileurl, identify, status, error_text, review_doc, batch_id, reviewed)
+        VALUES
+        <foreach item="item" collection="entities" separator=",">
+            (#{item.id}, #{item.filename}, #{item.fileurl}, #{item.identify}, #{item.status}, #{item.errorText}, #{item.reviewDoc}, #{item.batchId}, #{item.reviewed})
+        </foreach>
+    </insert>
+
+    </mapper>

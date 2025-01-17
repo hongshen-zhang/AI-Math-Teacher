@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaty.mapper.DocReviewRecMapper">
+
+    <!-- list -->
+    <select id="list">
+        select * from doc_review_rec 
+        <where>
+            deleted = 0
+            <if test="libraryId != null">
+                and library_id = #{libraryId} 
+            </if>
+        </where>
+    </select>
+
+    <!-- updateById -->
+    <update id="updateById">
+        update doc_review_rec 
+        <set>
+            <if test='docReviewId != null'>doc_review_id = #{docReviewId},</if>
+            <if test='libraryId != null'>library_id = #{libraryId},</if>
+            <if test='createTime != null'>create_time = #{createTime},</if>
+            <if test='deleted != null'>deleted = #{deleted},</if>
+        </set>
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+        </where>
+    </update>
+
+    <!-- selectPage -->
+    <select id="selectPage" resultType="com.chaty.entity.DocReviewRec">
+        SELECT
+            drr.*,
+            dl.docurl,
+            dl.docname,
+            dl.docpath,
+            dl.questions,
+            dr.filename,
+            dr.fileurl,
+            dr.identify,
+            dr.status,
+            dr.error_text,
+            dr.review_doc,
+            dr.reviewed 
+        FROM
+            doc_review_rec drr
+            LEFT JOIN doc_library dl ON drr.library_id = dl.id
+            LEFT JOIN doc_review dr ON drr.doc_review_id = dr.id
+        <where>
+            drr.deleted = 0
+            <if test="params.docname != null and params.docname != ''">
+                and dl.docname like concat('%', #{params.docname}, '%')
+            </if>
+            <if test="params.filename != null and params.filename != ''">
+                and dr.filename like concat('%', #{params.filename}, '%')
+            </if>
+            <if test="params.identify != null and params.identify != ''">
+                and dr.identify like concat('%', #{params.identify}, '%')
+            </if>
+            <if test="params.datePrefix != null and params.datePrefix != ''">
+                and drr.create_time like concat('%', #{params.datePrefix}, '%')
+            </if>
+            <if
+                test="params.startTime != null and params.startTime != '' and params.endTime != null and params.endTime != ''">
+                and drr.create_time between #{params.startTime} and #{params.endTime}
+            </if>
+        </where>
+        order by drr.create_time desc
+    </select>
+</mapper>

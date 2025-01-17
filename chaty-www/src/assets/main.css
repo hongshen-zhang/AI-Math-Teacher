@@ -1,7 +1,7 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
 
   font-weight: normal;
@@ -22,12 +22,12 @@ a,
 
 @media (min-width: 1024px) {
   body {
-    display: flex;
+    /* display: flex; */
     /* place-items: center; */
-    background: #f0f0f0;
+    /* background: #f0f0f0; */
   }
 
   #app {
-    background: #f0f0f0;
+    /* background: #f0f0f0; */
   }
 }

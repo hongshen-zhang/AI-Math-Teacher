@@ -5,16 +5,29 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:hk": "vite build --mode hk",
+    "build:new": "vite build --mode new --base=/new/",
     "preview": "vite preview"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
+    "@kangc/v-md-editor": "next",
+    "@microsoft/fetch-event-source": "^2.0.1",
     "axios": "^1.5.0",
+    "cropperjs": "^1.6.1",
+    "dayjs": "^1.11.13",
+    "echarts": "^5.5.1",
     "element-plus": "^2.3.12",
+    "highlight.js": "^11.9.0",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
     "latex.js": "^0.12.6",
+    "pdfjs-dist": "^2.10.377",
+    "pinia": "^2.1.7",
+    "swiper": "^11.1.15",
     "vue": "^3.3.4",
+    "vue-draggable-next": "^2.2.1",
+    "vue-i18n": "^9.10.1",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {

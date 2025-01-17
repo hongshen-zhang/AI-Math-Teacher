@@ -1,4 +1,15 @@
-<script setup>
+<script >
+  import {mapActions} from "pinia";
+  import {useUserStore} from "@/store";
+
+  export default {
+    created() {
+      this.initGuideStatus()
+    },
+    methods: {
+      ...mapActions(useUserStore, ['initGuideStatus']),
+    }
+  }
 </script>
 
 <template>
@@ -67,5 +78,5 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
+
 </style>
-//vue写的

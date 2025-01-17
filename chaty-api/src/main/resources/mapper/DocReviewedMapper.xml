@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaty.mapper.DocReviewedMapper">
+
+    <!-- list -->
+    <select id="list">
+        select * from doc_reviewed 
+        <where>
+            <if test="batchId != null and batchId != ''">
+                and batch_id = #{batchId}
+            </if>
+            <if test="ids != null">
+                and id in 
+                <foreach item="id" index="index" collection="ids" open="(" separator="," close=")">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+        order by id desc
+    </select>
+
+    <!-- updateById -->
+    <update id="updateById">
+        update doc_reviewed 
+        <set>
+            <if test='filename != null'>filename = #{filename},</if>
+            <if test='fileurl != null'>fileurl = #{fileurl},</if>
+            <if test='reviewed != null'>reviewed = #{reviewed},</if>
+            <if test='reviewedDoc != null'>reviewed_doc = #{reviewedDoc},</if>
+            <if test='status != null'>status = #{status},</if>
+            <if test='error != null'>error = #{error},</if>
+            <if test='batchId != null'>batch_id = #{batchId},</if>
+        </set>
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="ids != null">
+                and id in 
+                <foreach item="id" index="index" collection="ids" open="(" separator="," close=")">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </update>
+
+    <!-- insertOne -->
+    <insert id="insertOne" useGeneratedKeys="true" keyProperty="id" parameterType="com.chaty.entity.DocReviewed">
+        INSERT INTO doc_reviewed ( filename, fileurl, status, reviewed, reviewed_doc, error, batch_id )
+        VALUES
+            ( #{filename}, #{fileurl}, #{status}, #{reviewed}, #{reviewedDoc}, #{error}, #{batchId} )
+    </insert>
+</mapper>

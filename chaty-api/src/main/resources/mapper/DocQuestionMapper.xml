@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaty.mapper.DocQuestionMapper">
+
+    <!-- list -->
+    <select id="list">
+        select * from doc_question 
+        <where>
+            deleted = 0
+            <if test="query != null and query != ''">
+                and (question like concat('%', #{query}, '%') or correct_answer like concat('%', #{query}, '%'))
+            </if>
+        </where>
+        order by id desc
+    </select>
+
+    <!-- updateById -->
+
+    <update id="updateById">
+        update doc_question 
+        <set>
+            <if test='question != null'>question = #{question},</if>
+            <if test='correctAnswer != null'>correct_answer = #{correctAnswer},</if>
+            <if test='height != null'>height = #{height},</if>
+        </set>
+        <where>
+            and id = #{id}
+        </where>
+    </update>
+</mapper>

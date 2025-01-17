@@ -14,6 +14,13 @@ export default defineConfig({
     }
   },
   server: {
-    host: '0.0.0.0'
-  }
+    host: '0.0.0.0',
+    port: 20000,
+    proxy: {
+      // '/api': 'http://127.0.0.1:10002',
+      // '/static': 'http://127.0.0.1:10002',
+      '/api': 'https://www.saomiaoshijuan.com',
+      '/static': 'https://www.saomiaoshijuan.com',
+    }
+  },
 })

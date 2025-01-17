@@ -12,16 +12,16 @@
         WHERE
             r.deleted = 0
         <if test="keyword != null and keyword != ''">
-            AND r.question like '%'||#{keyword}||'%'
+            AND r.question like concat('%', #{keyword}, '%')
         </if>
         <if test="param.name != null and param.name != ''">
-            AND r.name like '%'||#{param.name}||'%'
+            AND r.name like concat('%', #{param.name}, '%')
         </if>
         <if test="param.question != null and param.question != ''">
-            AND r.question like '%'||#{param.question}||'%'
+            AND r.question like concat('%', #{param.question}, '%')
         </if>
         <if test="param.answer != null and param.answer != ''">
-            AND r.answer like '%'||#{param.answer}||'%'
+            AND r.answer like concat('%', #{param.answer}, '%')
         </if>
         <if test="param.isTrue != null">
             AND r.is_true = #{param.isTrue}

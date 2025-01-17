@@ -1,0 +1,2 @@
+# hk服务器配置
+VITE_API_URL = "http://api.saomiaoshijuan.com"

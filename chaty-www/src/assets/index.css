@@ -1,0 +1,16 @@
+.el-menu-item {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.el-button>span {
+    font-weight: 700;
+}
+
+.el-table {
+    thead {
+        .el-table__cell .cell {
+            font-weight: 700;
+        }
+    }
+}

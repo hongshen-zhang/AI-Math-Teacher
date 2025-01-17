@@ -1,0 +1,82 @@
+.el-table {
+  border: 1px solid #00000017;
+  border-radius: 10px;
+    thead {
+      th {
+        background-color: #fafafa !important;
+      }
+    }
+    .el-table__row {
+        .el-table__cell:last-child {
+            .el-button {
+                color: #fff;
+                border: none;
+
+                &:nth-child(3n+1) {
+                    background: transparent;
+                    color: #3981FF;
+                    font-weight: 400;
+                    font-size: 15px;
+                }
+
+                &:nth-child(3n+2) {
+                    background: transparent;
+                    font-weight: 400;
+                    font-size: 15px;
+                    color: #C4C4C4;
+                    letter-spacing: 0;
+                }
+
+                &:nth-child(3n+3) {
+                    background: rgb(103, 153, 245)
+                }
+            }
+
+            .el-space__item {
+                &:nth-child(3n+1) {
+                    .el-button {
+                        background: transparent;
+                        color: #3981FF;
+                        font-weight: 400;
+                        font-size: 15px;
+                    }
+                }
+
+                &:nth-child(3n+2) {
+                    .el-button {
+                        background: transparent;
+                        font-weight: 400;
+                        font-size: 15px;
+                        color: #C4C4C4;
+                        letter-spacing: 0;
+                    }
+                }
+
+                &:nth-child(3n+3) {
+                    .el-button {
+                        background: rgb(103, 153, 245)
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main-wrapper {
+    .header-bar {
+        .el-button--primary {
+            background-color: #1677ff;
+            border-radius: 6px;
+            .el-button__text,
+            span {
+              font-weight: normal;
+              font-size: 14px;
+              color: #ffffff;
+            }
+        }
+    }
+}
+.el-table-fixed-column--right {
+    box-shadow: -17px 0 17px rgba(0, 0, 0, 0.07) !important;
+
+}

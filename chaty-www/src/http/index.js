@@ -1,10 +1,21 @@
 import config from "../config";
 import axios from "axios";
 import { ElMessage } from "element-plus";
+import router from "../router";
+import { useUserStore } from "../store";
+import { debounce } from "../utils/api";
+
+const onAuthFailed = debounce(() => {
+  let userStore = useUserStore();
+  // userStore.showLogin(true)
+  router.push("/login")
+  ElMessage.error("未查询到登录信息，请重新登录!");
+})
 
 const instance = axios.create({
   baseURL: config.apiUrl,
-  timeout: 3 * 60000,
+  timeout: 10 * 60000,
+  withCredentials: true,
 });
 
 instance.defaults.headers.post["Content-Type"] =
@@ -21,6 +32,11 @@ instance.interceptors.response.use(
     }
   },
   function (error) {
+    if (error.response.status === 401) {
+      onAuthFailed();
+      return Promise.reject(error)
+    }
+    
     ElMessage.error(error.message);
     return Promise.reject(error);
   }

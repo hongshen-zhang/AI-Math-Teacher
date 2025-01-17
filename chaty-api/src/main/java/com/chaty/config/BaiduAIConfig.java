@@ -3,6 +3,7 @@ package com.chaty.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import com.chaty.api.baiduai.QianFanApi;
 import com.chaty.exception.BaseException;
@@ -35,6 +36,12 @@ public class BaiduAIConfig {
             return new BaseException(String.format("请求模型失败: %s", response.status()),
                     new BaseException(response.reason()));
         };
+    }
+
+    @Bean
+    public WebClient qianFanWebClient() {
+        return WebClient.builder().baseUrl(url)
+                .build();
     }
 
 }
