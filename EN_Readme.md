@@ -2,7 +2,6 @@
 
 🌐 [English](./EN_Readme.md) | [中文](./README.md)
 
-By : Xinjin(Synthia) Li
 
 ![](https://img.shields.io/badge/License-MIT-lightgrey)
 ![](https://img.shields.io/badge/Version-v0.0.1-orange)
