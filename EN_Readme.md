@@ -126,7 +126,7 @@ During the multi-agent discussion, if the results from different models are cons
 
 Currently, the large models we use include Llama-3-70b-Groq, Claude-3.5, the multimodal large model GPT-4o, Gemini, and others. By introducing multimodal large models, we ensure that the system can effectively handle image-based questions and drawing problems, while also leveraging the advantages of large language models in processing natural language. Introducing these models not only combines the strengths of each model but also minimizes the probability of errors through multi-agent discussion. Additionally, we can replace or add more powerful models in the future.
 
-![image-20240805231054488](.\img\model.png)
+![image-20240805231054488](./img/model.png)
 
 ##### Cross-Validation
 
@@ -187,7 +187,7 @@ When Kafka and Redis work together in the system, Kafka handles high-concurrency
 
 By extensively using this caching mechanism in the model, we achieve high availability, significantly reduce the backend server load, and optimize overall system performance.
 
-![image-20240805231123184](.\img\1.jpg)
+![image-20240805231123184](./img/1.jpg)
 
 #### Cloud Server Deployment
 
@@ -264,9 +264,9 @@ In this project, database operations generally follow these steps:
 
 Here is a general schematic and structural diagram of database usage in this project:
 
-![image-20240805231143759](.\img\2.jpg)
+![image-20240805231143759](./img/2.jpg)
 
-![image-20240805231143759](.\img\3.jpg)
+![image-20240805231143759](./img/3.jpg)
 
 ## Software and Hardware Integration
 
@@ -328,8 +328,8 @@ Under the background of increased national investment in education and rapid adv
 
 ### Benyuan Primary School, Foshan (Grade 4, Mathematics)
 
-![image-20240805231203976](.\img\uc1.png)
+![image-20240805231203976](./img/uc1.png)
 
 ### Wensan Street Primary School, Hangzhou (Grade 3, English)
 
-![image-20240805231203976](.\img\uc2.png)
+![image-20240805231203976](./img/uc2.png)
