@@ -8,7 +8,7 @@
 ## Resource
 
 [Demo Video](https://www.bilibili.com/video/BV1yj411R7FR/?share_source=copy_web&vd_source=2402ea50d5e761d0c54f9f9cb8f35a85)
-[Website](https://saomiaoshijuan.com/) 
+[Website](https://www.saomiaoshijuan.com/) 
 
 ## 引言
 
